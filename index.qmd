@@ -1,0 +1,3 @@
+<!-- Include Quarto files -->
+{{< include contents/1-bak.qmd >}}
+{{< include contents/2-bak.qmd >}}

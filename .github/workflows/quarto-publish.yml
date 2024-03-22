@@ -30,7 +30,7 @@ jobs:
 
       - name: Build outputs with Makefile
         run: |
-          make
+          make pdf
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

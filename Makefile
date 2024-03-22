@@ -1,13 +1,3 @@
-# A variable listing all *.md files
-QMD_FILES := $(filter-out %-bak.qmd,$(wildcard contents/[0-9]*.md))
-# Convert the .md file names to bak.qmd file names
-BAK_FILES := $(patsubst %.md,%-bak.qmd,$(QMD_FILES))
-
-%-bak.qmd: %.md
-	@perl -0777 -pe ' \
-	  s/\s*\[@\].*?[\]\)]//g; \
-	' $< > $@
-
 # Variable to reference the Python interpreter
 PYTHON := python
 
@@ -16,7 +6,7 @@ footnote:
 	@$(PYTHON) footnote.py
 
 # Target rule for building PDF
-pdf: index.qmd $(BAK_FILES) footnote
+pdf: index.qmd footnote
 	quarto render --to pdf
 
 # Remove generated files

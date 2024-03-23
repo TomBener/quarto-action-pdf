@@ -27,13 +27,20 @@ jobs:
         with:
           version: "pre-release"
 
-      - name: Setup TeX Live
-        uses: xu-cheng/texlive-action@v2
-        with:
-          scheme: full
+      - name: Setup TinyTeX
+        uses: r-lib/actions/setup-tinytex@v2
+        env:
+          # install full prebuilt version
+          TINYTEX_INSTALLER: TinyTeX
 
-      - name: Check `tlmgr` version
-        run: tlmgr --version
+      - name: Install Fonts From System
+        run: |
+          export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+          brew install optipng jags virtualenv
+          brew install --cask xquartz
+          brew tap homebrew/cask-fonts
+          brew install --cask font-noto-sans-cjk-sc font-noto-serif-cjk-sc
+          fc-list | sort
 
       - name: Build outputs with Makefile
         run: |

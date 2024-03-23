@@ -37,6 +37,7 @@ jobs:
 
       - name: Build PDF
         run: |
+          fc-list :lang=zh
           make pdf
 
       - name: Deploy to GitHub Pages

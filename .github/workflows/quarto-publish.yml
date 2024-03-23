@@ -19,7 +19,7 @@ jobs:
 
       - name: Download Kaiti
         run: |
-          ls ls ~/Library/Fonts
+          ls ~/Library/Fonts
           fc-list :lang=zh
           # curl "https://p15.p3.n0.cdn.zight.com/items/eDueDDv9/a605729f-c1d2-4131-b805-e870615b43aa.ttc" -o /System/Library/Fonts/Kaiti.ttc
 

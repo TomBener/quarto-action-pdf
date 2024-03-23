@@ -31,7 +31,7 @@ jobs:
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
-          run: echo "Hello, TeX Live!"
+          run: echo "Hello, TeX Live"
 
       - name: Build outputs with Makefile
         run: |

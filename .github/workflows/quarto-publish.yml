@@ -31,8 +31,6 @@ jobs:
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
-          run: |
-            make --version
 
       - name: Check `tlmgr` version
         run: tlmgr --version

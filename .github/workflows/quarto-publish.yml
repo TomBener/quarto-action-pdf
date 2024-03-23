@@ -27,22 +27,17 @@ jobs:
         with:
           version: "pre-release"
 
-      - name: Setup TinyTeX
-        uses: r-lib/actions/setup-tinytex@v2
-        env:
-          # install full prebuilt version
-          TINYTEX_INSTALLER: TinyTeX
-
-      - name: Install additional LaTeX packages
-        run: |
-          tlmgr update --self
-          tlmgr install ctex
-          tlmgr list --only-installed
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: >-
+            scheme-basic
+            ctex
+          update-all-packages: true
 
       - name: Build PDF
         run: |
-          make latex && latexmk index.tex -xelatex && latexmk -c
-          mkdir -p publish && mv index.pdf publish/
+          make pdf
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

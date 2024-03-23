@@ -9,9 +9,6 @@ footnote:
 pdf: index.qmd footnote
 	quarto render --to pdf
 
-latex: index.qmd footnote
-	quarto render --to latex
-
 # Remove generated files
 .SILENT:
 .PHONY: clean

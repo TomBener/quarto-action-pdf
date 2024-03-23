@@ -17,9 +17,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Download Kaiti
-        run: |
-          curl "https://p15.p3.n0.cdn.zight.com/items/eDueDDv9/a605729f-c1d2-4131-b805-e870615b43aa.ttc" -o /System/Library/Fonts/Kaiti.ttc
+      # - name: Download Kaiti
+      #   run: |
+      #     curl "https://p15.p3.n0.cdn.zight.com/items/eDueDDv9/a605729f-c1d2-4131-b805-e870615b43aa.ttc" -o /System/Library/Fonts/Kaiti.ttc
 
       - name: Setup Python
         uses: actions/setup-python@v3
@@ -41,6 +41,7 @@ jobs:
 
       - name: Build PDF
         run: |
+          ls ls ~/Library/Fonts
           fc-list :lang=zh
           make pdf
 

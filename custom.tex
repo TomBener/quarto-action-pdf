@@ -1,6 +1,15 @@
-\usepackage[fontset=macnew,zihao=-4,space=true,linespread=1.5]{ctex}
+\usepackage[zihao=-4,space=true,linespread=1.5]{ctex}
 \setmainfont{Times New Roman}
 % \setmonofont{JetBrainsMono-Regular}
-% \setCJKmainfont[AutoFakeBold=5, % 伪粗体
-%     % ItalicFont=STKaiti
-%     ]{STFangsong}
+\setCJKmainfont[AutoFakeBold=5, % 伪粗体
+    % ItalicFont=STKaiti
+    ]{FangSong}
+
+\pagestyle{plain}
+\renewcommand*{\thepage}{\footnotesize{\arabic{page}}}
+\setlength{\footskip}{1.5cm}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+
+% Patch the \printbibliography command to add a bookmark
+\pretocmd{\printbibliography}{\pdfbookmark{参考文献}{bib}}{}{}

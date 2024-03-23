@@ -33,14 +33,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "pre-release"
-
-      - name: Setup TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: >-
-            scheme-basic
-            ctex
-          update-all-packages: true
+          tinytex: true
 
       - name: Build PDF
         run: |

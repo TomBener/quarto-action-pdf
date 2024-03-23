@@ -17,4 +17,3 @@ format:
     cite-method: biblatex
     biblio-title: 参考文献
     bibliography: bibliography.bib
-    keep-tex: true

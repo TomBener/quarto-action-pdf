@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Check out repository
@@ -26,7 +26,12 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "pre-release"
-          tinytex: true
+
+      - name: Install TeX Live
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: echo "Hello, TeX Live!"
 
       - name: Build outputs with Makefile
         run: |

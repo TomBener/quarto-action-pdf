@@ -27,12 +27,16 @@ jobs:
         with:
           version: "pre-release"
 
-      - name: Install TeX Live
-        uses: xu-cheng/texlive-action@v2
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
         with:
-          scheme: full
-          run: |
-            sudo tlmgr update --self
+          packages: >-
+            scheme-basic
+            ctex
+            biblatex
+
+      - name: Check `tlmgr` version
+        run: tlmgr --version
 
       - name: Build outputs with Makefile
         run: |

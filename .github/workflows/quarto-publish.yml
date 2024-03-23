@@ -36,12 +36,13 @@ jobs:
       - name: Install additional LaTeX packages
         run: |
           tlmgr update --self
-          tlmgr install ctex biblatex-gb7714-2015
+          tlmgr install ctex
           tlmgr list --only-installed
 
-      - name: Build outputs with Makefile
+      - name: Build PDF
         run: |
-          make pdf
+          make latex && latexmk index.tex -xelatex && latexmk -c
+          mkdir -p publish && mv index.pdf publish/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

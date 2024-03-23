@@ -3,7 +3,7 @@ author: Author Name
 date: today
 project:
   type: default
-  output-dir: publish
+  # output-dir: publish
   render:
     - index.qmd
 number-sections: true
@@ -11,6 +11,14 @@ link-citations: true
 
 format:
   pdf:
+    include-in-header:
+      - custom.tex
+    indent: true
+    cite-method: biblatex
+    biblio-title: 参考文献
+    bibliography: bibliography.bib
+
+  latex:
     include-in-header:
       - custom.tex
     indent: true

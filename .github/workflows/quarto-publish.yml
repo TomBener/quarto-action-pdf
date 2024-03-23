@@ -31,7 +31,8 @@ jobs:
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
-          run: echo "Hello, TeX Live"
+          run: |
+            sudo tlmgr update --self
 
       - name: Build outputs with Makefile
         run: |
